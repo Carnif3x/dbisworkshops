@@ -1,0 +1,47 @@
+{% extends '_layout.html' %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="row justify-content-md-center">
+            <div class="col-sm-11">
+                <div class="row" style="margin-top: 5%; margin-bottom: 1%;">
+                    <div class="col-sm-9"><h1>All events</h1></div>
+                    <div class="col-sm-3">
+                        <form class="form-inline" method="GET" action="/events/">
+                            <div class="form-group mx-sm-3 mb-2">
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Search by title">
+                            </div>
+                            <input type="submit" class="btn btn-primary mb-2" placeholder="Search">
+                        </form>
+                    </div>
+                </div>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Theme</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Organizer</th>
+                            <th scope="col">Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for event in events %}
+                        <tr>
+                            <th scope="row">{{ event[5] }}</th>
+                            <td>{{ event[0] }}</td>
+                            <td>{{ event[1] }}</td>
+                            <td>{{ event[2] }}</td>
+                            <td>{{ event[4] }}</td>
+                            <td>{{ event[3] }} UAH</td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
